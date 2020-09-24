@@ -9,17 +9,64 @@
    <script src="main.js"></script>
 
     <h1>Week 02 Notes</h1>
-
-        <h2>Program Structure</h2>
         <ol>
-          <li>In some cases, JavaScript allows you to omit the semicolon at the end of a statement. In other cases, it has to be <br> 
-          there, or the next line will be treated as part of the same statement. The rules for when it can be safely omitted are <br>
-          somewhat complex and error-prone. So in this book, every statement that needs a semicolon will always get one. </li>
-          <li>full list of keywords and reserved words is rather long: break case catch class const continue debugger default delete 
-          <br>do else enum export extends false finally for function if implements import interface in instanceof let new package <br>
-          private protected public return static super switch this throw true try typeof var void while with yield</li>
-          <li></li>
-          <li></li>
+           <h2>Program Structure</h2>
+           <li>In some cases, JavaScript allows you to omit the semicolon at the end of a statement. In other cases, it has to be  
+           there, or the next line will be treated as part of the same statement. The rules for when it can be safely omitted are 
+           somewhat complex and error-prone. So in this book, every statement that needs a semicolon will always get one. </li>
+           <li>full list of keywords and reserved words is rather long: break case catch class const continue debugger default delete 
+           <br>do else enum export extends false finally for function if implements import interface in instanceof let new package 
+           private protected public return static super switch this throw true try typeof var void while with yield</li>
+           
+           <h2>Functions</h2>
+           <li>A function definition is a regular binding where the value of the binding is a function.</li>
+           <li>For example, this code defines square to refer to a function that produces the square of a given number: 
+              const square = function(x) {  return x * x; }; console.log(square(12)); // → 144 </li>
+           <li>A function can have multiple parameters or no parameters at all.</li>
+           <li>Function declarations are not part of the regular top-to-bottom flow of control. They are conceptually moved to the 
+              top of their scope and can be used by all the code in that scope. </li>
+           <li>The arrow ( => ) comes after the list of parameters and is followed by the function’s body. It expresses something like “this
+              input (the parameters) produces this result (the body)”.</li>
+           <li>The place where the computer stores this context is the call stack. Every time a function is called, the current context is 
+              stored on top of this stack. When a function returns, it removes the top context from the stack and uses that context to continue 
+              execution.</li>
+           <li>If you pass too many [parameters], the extra ones are ignored. If you pass too few, the missing parameters get assigned the 
+              value undefined</li>
+           <li>closure: being able to reference a specific instance of a local binding in an enclosing scope</li>
+           <li>recursive: a function that calls itself</li>
+           <li>Running through a simple loop is generally cheaper than calling a function multiple times.</li>
+           
+           <h2>Data Structures: Objects and Arrays</h2>
+           <li>Objects: allow us to group values—including other objects—to build more complex structures</li>
+           <li>Array: a data type specifically for storing sequences of values; written as a list of values between square brackets, 
+              separated by commas; the first index of an array is zero, not one.</li>
+           <li>The two main ways to access properties in JavaScript are with a dot and with square brackets. Both value.x and 
+              value[x] access a property on value—but not necessarily the same property.</li>
+           <li>Whereas value.x fetches the property of value named “x”, value[x] tries to evaluate the expression x and 
+              uses the result, converted to a string, as the property name.</li>
+           <li>The binary "in" operator, when applied to a string and an object, tells you whether that object has a property with 
+              that name. To find out what properties an object has, you can use the Object.keys function.</li>
+           <li>To compute the measure of correlation between two Boolean variables, we can use the phi coefficient (ϕ). 
+              This is a formula whose input is a frequency table containing the number of times the different combinations of 
+              the variables were observed. The output of the formula is a number between -1 and 1 that describes the correlation. </li>
+           <li>The corresponding methods for adding and removing things at the start of an array are called unshift and shift.</li>
+           <li>The trim method removes whitespace (spaces, newlines, tabs, and similar characters) from the start and end of a string.</li>
+           <li>Some other common methods: indexOf, padStart, split, join, repeat, length</li>
+           <li>It can be useful for a function to accept any number of arguments. For example, Math.max computes the maximum of all 
+              the arguments it is given.</li>
+           <li>The Math object is used as a container to group a bunch of related functionality. There is only one Math object, and 
+              it is almost never useful as a value. Rather, it provides a namespace so that all these functions and values do not have
+              to be global bindings.</li>
+           <li>JSON: JavaScript Object Notation. It is widely used as a data storage and communication format on the Web. Serializes 
+              data or converts it into a flat description</li>
+           <li>JSON looks similar to JavaScript’s way of writing arrays and objects, with a few restrictions. All property names 
+              have to be surrounded by double quotes, and only simple data expressions are allowed—no function calls, bindings, or 
+              anything that involves actual computation. Comments are not allowed in JSON.</li>
+           <li>JavaScript gives us the functions JSON.stringify and JSON.parse to convert data to and from this format. The 
+              first takes a JavaScript value and returns a JSON-encoded string. The second takes such a string and converts it to the 
+              value it encodes.</li>
+           <li></li>
+           <li></li>
         </ol>
       
    </body>
