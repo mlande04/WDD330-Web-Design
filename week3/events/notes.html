@@ -10,7 +10,7 @@
 
     <h1>Week 03 Notes</h1>
         <ol>
-           <h2>Objects</h2>
+           <h2>Ch 5: Objects</h2>
            <li>Object: a self-contained set of related values and functions</li>
            <li>Object literal: an object that is created directly in the language by wrapping all its properties and methods in curly braces</li>
            <li>To create an object literal, simply enter a pair of curly braces. " const spiderman = {}; " It’s also possible to create an object using a constructor function. " const spiderman = new Object(); " - Not Recommended</li>
@@ -69,18 +69,35 @@
            <li>$ marks the position immediately after the last character in the string</li>
            <li>Any special characters or modifiers can be escaped using a backslash. So if you wanted to match a question mark, ? , you would need to use the regular expression /\?/ .</li>
            </ol>
-           <li></li>
-           <li></li>
+                      
+           <h2>Ch 6: Document Object Model</h2>
+           <li>The Document Object Model is a way of representing a page of HTML as a tree of nodes.</li>
+           <li>Look at html page <a href="week3/events/heroes.html">heroes</a> Compare page to <a ref = https://d1rxzn6szs9jwr.cloudfront.net/premium/reeedr/books/javascript-novice-to-ninja-2nd-edition/images/ch6htmlTree.png>node tree</a></li>
+           <li>The document.getElementById() , document.getElementsByClassName() , document.getElementsByTagNames() and document.querySelector() can be used to access elements on a page.</li>  
+           <li>Every id attribute should be unique to just one element</li>
+           <li>The parentNode() , previousSibling() , nextSibling() , childNodes() and children() methods can be used to navigate around the DOM tree.</li>
+           <li>An element’s attributes can be accessed using the getAttribute() method, and updated using the setAttribute() method.</li>
+           <li>The createElement() and createTextNode() methods can be used to create dynamic markup on the fly.</li>
+           <li>Markup can be added to the page using the appendChild() and insertBefore() methods.</li>
+           <li>Elements can be replaced using the replaceChild() method, and removed using the removeChild() method.</li>
+           <li>The innerHTML property can be used to insert raw HTML directly into the DOM.</li>
+           <li>The CSS properties of an element can be changed by accessing the style property.</li>
            
-           <h2></h2>
-           <li></li>
-           <li></li>  
-           <li></li>
-           <li></li>
-           
-           <h2></h2>
-           <li></li>
-           <li></li>
+           <h2>Ch 7: Events</h2>
+           <li>Events occur when a user interacts with a web page.</li>
+           <li>An event listener is attached to an element, then invokes a callback function when the event occurs.</li>
+           <ul>
+              <li>document.body.addEventListener("click", doSomething);</li>
+              <li>Inline: <p onclick="console.log('You Clicked Me!')">Click Me</p><em> - Not Recommended</em></li>
+              <li>document.onclick = function (){ console.log('You clicked on the page!'); } - Only allows one function/event.</li>
+           </ul>
+           <li><a ref = https://developer.mozilla.org/en-US/docs/Web/Events>Full list of events.</a></li>
+           <li>The event object is passed to the callback function as an argument, and contains lots of properties and methods relating to the event.</li>
+           <li>There are many types of event, including mouse events, keyboard events, and touch events.</li>
+           <li>You can remove an event using the removeEventListener method.</li>
+           <li>The default behavior of elements can be prevented using the preventDefault() function.</li>
+           <li>Event propagation is the order the events fire on each element.</li>
+           <li>Event delegation is when an event listener is added to a parent element to capture events that happen to its children elements.</li>
            <li></li>
            <li></li>
         </ol>
