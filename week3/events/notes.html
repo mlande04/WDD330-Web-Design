@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <title>WDD 330 Portfolio | Notes</title>
+   </head>
+
+   <body>
+   <script src="main.js"></script>
+
+    <h1>Week 03 Notes</h1>
+        <ol>
+           <h2>Objects</h2>
+           <li>Object: a self-contained set of related values and functions</li>
+           <li>Object literal: an object that is created directly in the language by wrapping all its properties and methods in curly braces</li>
+           <li>To create an object literal, simply enter a pair of curly braces. " const spiderman = {}; " It’s also possible to create an object using a constructor function. " const spiderman = new Object(); " - Not Recommended</li>
+           <li>You can access the properties of an object using the dot notation (spiderman.name) or bracket notation (spiderman['name']).</li>
+           <li>To call an object’s method we can also use dot or bracket notation.</li>
+           <li>The in operator can be used to check whether an object has a particular property. Alternatively, you could also check to see if the property or method doesn’t return undefined.</li>
+           <li>All objects have a method called hasOwnProperty() . This can be used to check whether an object has a property that is its own, rather than one that has been inherited from another object. This method willonlyreturn any properties that belong to that particular object.</li>
+           <li>We can loop through all of an object’s properties and methods by using a for in loop.</li>  
+           <ul>
+            <li>Create an array with "key:property": for(const key in superman) {<br>    console.log(key + ": " + superman[key]);</li>
+            <li>Create an array with "key:property" of ONLY the objects own properties: for(const key in superman) {<br>    if(superman.hasOwnProperty(key)){console.log(key + ": " + superman[key]);}}</li>
+            <li>Create an array of all properties: for(const key of Object.keys(superman)) {console.log(key);}</li>
+            <li>Create an array of all Object's values: for(const value of Object.values(superman)) {console.log(value);}</li>
+            <li>Create an array of all Object's key:value pairs: for(const [key,value] of Object.entries(superman)) {console.log(`${key}: ${value}`);}</li>
+           </ul>
+           <li>JSON is a string representation of the object literal notation. Differences:</li>
+           <ol>
+            <li>Property names must be double-quoted</li>
+            <li>Permitted values are double-quoted strings, numbers, true, false, null, arrays and objects</li>  
+            <li>Functions are not permitted values</li>
+           </ol>
+           <li>JSON functions:</li>
+           <ol>
+            <li>parse() method: takes a string of data in JSON format and returns a JavaScript object</li>
+            <li>stringify() method: takes a JavaScript object and returns a string of JSON data</li>  
+           </ol>
+           <li>Mathematical methods: abs(), ciel(), floor(), round(), trunc(), exp(), pow(), sqrt(), cbrt(), hypot(), plus log methods, trig methods, etc</li>
+           <li>Epoch: 1st January 1970. This is an arbitrary date that is used in programming as a reference point in time from which to measure dates. </li>  
+           <li>Constructor function: used to create a new date object (or other object) using the new operator</li>
+           <li>GETTER and SETTER methods: can be called when new Objects are created from objects which already have established get and set methods</li>
+           <li>Regular Expressions:</li>
+           <ol>
+            <li>Set between forward slashes: const pattern = /[a-zA-Z]+ing$/; -> finds all words ending in 'ing'</li>
+            <li>Use new operator and RegExp() method: const pattern = new RegExp('[a-zA-Z]+ing'); -> finds all words ending in 'ing'</li> 
+            <li>Using literal regular expressions takes less typing, but there are advantages to using the constructor function as it lets you create regular expressions using strings, which can be useful when the regular expression is provided from user input</li>
+            <li>test(): see if a string (passed to the method as a parameter) matches the regular expression pattern. It returns true if the pattern is in the string, and false if it isn’t.</li>
+            <li>exec(): instead of returning true or false , it returns an array containing the first match found, or null if there aren’t any matches:</li>
+            <li>The global property makes the pattern return all matches. By default, the pattern only looks for the first occurrence of a match. g sets the global property to true</li>
+            <li>The ignoreCase property makes the pattern case-insensitive. By default, they are case sensitive. i sets the ignoreCase property to true</li>
+            <li>The multiline property makes the pattern multiline. By default, a pattern will stop at the end of a line. m sets the multiline property to true</li>
+            <li>. matches any character, except line breaks</li>
+            <li>\w matches any word character, and is equivalent to [A-Za-z0-9_]</li>  
+            <li>\W matches any non-word character, and is equivalent to [\^A-Za-z0-9_]</li>
+            <li>\d matches any digit character, and is equivalent to [0-9]</li>
+            <li>\D matches any non-digit character, and is equivalent to [^0-9]</li>
+            <li>\s matches any whitespace character, and is equivalent to [ \t\r\n\f]</li>  
+            <li>\S matches any non-whitespace character, and is equivalent to [^ \t\r\n\f]</li>
+            <li>? makes the preceding token in the regular expression optional</li>
+            <li>* matches one or more occurrences of the preceding token</li>
+           <li>+ matches one or more occurrences of the preceding token</li>  
+           <li>{n} matchesnoccurrences of the preceding token</li>
+           <li>{n,} matches at leastnoccurrences of the pattern</li>
+           <li>{,m} matches at mostmoccurrences of the preceding token</li>
+           <li>{n,m} matches at leastnand at mostmoccurrences of the preceding token</li>  
+           <li>^ marks the position immediately before the first character in the string</li>
+           <li>$ marks the position immediately after the last character in the string</li>
+           <li>Any special characters or modifiers can be escaped using a backslash. So if you wanted to match a question mark, ? , you would need to use the regular expression /\?/ .</li>
+           </ol>
+           <li></li>
+           <li></li>
+           
+           <h2></h2>
+           <li></li>
+           <li></li>  
+           <li></li>
+           <li></li>
+           
+           <h2></h2>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+        </ol>
+      
+   </body>
+
+</html>
