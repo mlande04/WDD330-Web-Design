@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <style>
+    /* centers container */
+    .container{  
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container2{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 2%;
+    }
+    
+    .game{
+      display: grid;
+      grid-template-columns: auto auto auto; /* makes 3 columns, if 4 autos, then 4 columns */
+    }
+    .section{
+      display: flex;
+      width: 100px;
+      height: 100px;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid black;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .section:hover {
+      cursor: pointer;
+      background: greenyellow;
+    }
+    #section1,
+    #section2,
+    #section3{
+      border-top: none;
+    }
+    #section1,
+    #section4,
+    #section7{
+      border-left: none;
+    }
+    #section3,
+    #section6,
+    #section9{
+      border-right: none;
+    }
+    #section7,
+    #section8,
+    #section9{
+      border-bottom: none;
+    }
+    button{
+      border: 4px solid green;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      background: none;
+      
+    }
+    button:hover {
+      cursor: pointer;
+      background: green;
+      color: white;
+    }
+    
+  </style>
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Tic Tac Toe</h1>
+    <div class="game" id="game" onclick="myFunction(event)">
+      <div id="section1" class="section"></div>
+      <div id="section2" class="section"></div>
+      <div id="section3" class="section"></div>
+      <div id="section4" class="section"></div>
+      <div id="section5" class="section"></div>
+      <div id="section6" class="section"></div>
+      <div id="section7" class="section"></div>
+      <div id="section8" class="section"></div>
+      <div id="section9" class="section"></div>      
+    </div>
+    <div id="winner"></div>
+  </div>
+  <div class="container2">
+    <button onclick="reset()">Play Again</button>
+  </div>  
+  <script>    
+    let nextMove='X';
+    function myFunction(event) { 
+    event.target.innerHTML=nextMove;
+      if (nextMove==='X'){
+          nextMove='O';
+        }else{nextMove='X'}
+        if(('.game div:nth-child(1).innerHTML'==='X') && ('.game div:nth-child(2).innerHTML'==='X') && 
+        ('.game div:nth-child(3).innerHTML'==='X')){
+          console.log("X Wins");
+        }
+      }
+  
+
+
+
+
+    function reset(){
+      const theSections=document.getElementById('game').children;
+      console.log(theSections);
+      let i=0;
+      for(i; i < theSections.length; i++) {
+        theSections[i].innerHTML="";
+      }   
+    }
+
+    </script> 
+</body>
+</html>
