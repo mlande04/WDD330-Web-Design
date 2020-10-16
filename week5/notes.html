@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>WDD 330 Portfolio</title>
+   </head>
+
+   <body>
+   <script src="main.js"></script>
+    <h1>Ch 10 Notes</h1>
+      <ul>
+        <h2>Errors, Exceptions, & Warnings</h2>
+        <h3>Errors</h3>
+        <li><em>Errors:</em> something goes wrong in a program</li>
+        <ol>
+          <li>System error: there’s a problem with the system or external devices with which the program is interacting.</li>
+          <li>Programmer error: the program contains incorrect syntax or faulty logic; it could even be as simple as a typo</li>
+          <li>User error: the user has entered data incorrectly, which the program is unable to handle</li>
+        </ol>
+        <li>try to limit user errors by predicting any possible interactions that may throw an error, & ensure they are dealt with in a way that doesn’t negatively affect the user experience</li>
+        <h3>Exceptions</h3>
+        <li><em>Exceptions:</em> an error that produces a return value that can then be used by the program to deal with the error</li>
+        <ol>
+          <li><em>Stack Trace:</em> produced by an exception; a sequence of functions or method calls that lead to the point where the error occurred</li>
+        </ol>
+        <h3>Warnings</h3>
+        <li><em>Warnings:</em> can occur if there’s an error in the code that isn't enough to cause the program to crash</li>
+        <li>Strict mode: produces more exceptions and warnings and prohibits the use of some deprecated features; considers coding practices that were previously accepted as just being 'poor style' as actual errors</li>
+        <ol>
+          <li>Strict mode simply requires the following string to be added to the first line of a JavaScript file:</li>
+          <li>  'use strict';</li>
+        </ol>
+        <li><em>Linting Tools:</em> can be used to test the quality of JavaScript code, beyond simply using strict mode; designed to highlight any sloppy programming practices or syntax errors; will complain if certain style conventions are not followed</li>
+        <li><em>Feature Detection:</em> recommended way to determine browser support for a feature; done using an if statement to check whether an object or method exists before trying to actually call the method</li>
+        <h3>Debugging in the Browser</h3>
+        <li><em>Debugging:</em> the process of finding out where bugs occur in the code and then dealing with them</li>
+        <li><em>Trusty Alert:</em> most basic form of debugging is to use the alert() method to show a dialog at certain points in the code; stops a program from running until OK is clicked</li>
+        <li><em>Using the console:</em>  can be used to log the value of variables at different stages of the program; will not stop the program</li>
+        <ol>
+          <li>console.log() -> log the position in the function as well as the value of the variable</li>
+          <li>console.trace() -> log an interactive stack trace in the console</li>
+          <li><a href="https://www.sitepoint.com/three-little-known-development-console-api-methods/">SitePoint</a> discusses other less well known console methods</li>
+        </ol>
+        <li>Breakpoint: a debugging tool which pauses the code at certain points</li>
+        <ol>
+          <li>"debugger" keyword: will create a breakpoint in your code that will pause the execution of the code and allow you to see where the program is currently up to</li>
+        </ol>
+        <li>Error Objects: can be created by the host environment when an exception occurs; can be created in the code using a constructor function => <br>const error = new Error();<br>const error = new Error('Oops, something went wrong');</li>
+        <ol>
+          <li>7 More Error Objects:</li>
+          <li>EvalError: not used in the current ECMAScript specification and only retained for backwards compatibility. It was used to identify errors when using the global eval() function.</li>
+          <li>RangeError: thrown when a number is outside an allowable range of values</li>
+          <li>ReferenceError: thrown when a reference is made to an item that doesn’t exist</li>
+          <li>SyntaxError: thrown when there’s an error in the code’s syntax</li>
+          <li>TypeError: thrown when there’s an error in the type of value used</li>
+          <li>URIError: thrown when there’s a problem encoding or decoding the URI</li>
+          <li>InternalError: a non-standard error that is thrown when an error occurs in the JavaScript engine. A common cause of this too much recursion.</li>
+        </ol>
+        <li>can also be used as constructors to create custom error objects<br> const error = new TypeError('You need to use numbers in this function');</li>
+        <li>have a number of properties; only properties that are generally safe to use are:</li>
+        <ol>
+          <li>name: returns the name of the error constructor function used as a string</li>
+          <li>message: returns a description of the error and should be provided as an argument to the Error constructor function</li>
+          <li>stack: will return a stack trace for that error</li>
+        </ol>
+        <h3>Throwing Exceptions</h3>
+        <li><em>Throw statement:</em> can be applied to any JavaScript expression, causing the execution of the program to stop</li>
+        <li>best practice, however, to throw an error object:<br>   throw new Error('Something has gone badly wrong!');</li>
+        <h3>Exception Handling</h3>
+        <li>Any errors can be hidden from users, but still identified. We can then deal with the error appropriately ― perhaps even ignore it ― and keep the program running.</li>
+        <li><em>try</em> block: will run the code inside the block as normal, but if an exception occurs it will pass the error object that is thrown onto a catch block</li>
+        <li><em>catch</em> block: code inside will only run if an exception is thrown inside the try block; the error object is automatically passed as a parameter to the catch block. This allows us to query the error name, message and stack properties, and deal with it appropriately</li>
+        <li><em>finally</em> block: can be added after a catch block. This will always be executed after the try or catch block, regardless of whether an exception occurred or not</li>
+        <h3>Tests</h3>
+        <li>Writing good tests means your code will be less brittle as it develops, and any errors will be identified early on.</li>
+        <ol>
+          <li>can simply be a function that tests a piece of code runs as it should</li>
+          <li>This is in no way a thorough test of the function – it might just be a fluke.</li>
+        </ol>
+        <h3>Test-Driven Development (TDD)</h3>
+        <li>TDD: the process of writing tests before any actual code</li>
+        <li>The next step is to write some code to make the tests pass.</li>
+        <li>Next, the code is refactored to make it faster, more readable, and remove any repetition.</li>
+        <li>The code is continually tested at each stage to make sure it continues to work</li>
+        <ol>
+          <li>Write tests (that initially fail)</li>
+          <li>Write code to pass the tests</li>
+          <li>Refactor the code</li>
+          <li>Test refactored code</li>
+          <li>Write more tests for new features</li>
+        </ol>
+        <li><em>Testing Frameworks:</em> provide a structure to write meaningful tests and then run them</li>
+        <h3>Chapter Summary</h3>
+        <li>Bugs are unavoidable in code, and it’s best to find them early rather than later.</li>
+        <li>JavaScript can be put into strict mode using the string "use strict" . This can be used in a whole file or just a single function.</li>
+        <li>Linting tools can be used to ensure your code follows good practice and conventions.</li>
+        <li>Feature detection can check whether a method is supported before calling it, helping to avoid an exception being thrown.</li>
+        <li>The console and browser’s built-in debugging tool can be used to interactively find and fix bugs in code.</li>
+        <li>Exceptions can be thrown using the throw statement.</li>
+        <li>An error object is created when an exception occurs.</li>
+        <li>Any code placed inside a try block will pass any error objects to a catch block when an exception occurs. Any code inside a finally block will run if an exception does or does not occur.</li>
+        <li>Test-driven development is the practice of writing tests that fail, then writing the code that passes the test, then refactoring the code every time a new feature is implemented.</li>
+        <li>The Jest framework can be used to test your code.</li>
+      </ul>
+   </body>
+
+</html>
