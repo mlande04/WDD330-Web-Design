@@ -2,34 +2,52 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>ToDo List (dynamic)</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="main.css">
-	<script src="main.js"></script>
-	</head>
 
-	<body>
-		<main>
-	
-		<div id="myDIV" class="header">
-		  <h2>My To Do List</h2>
-		  <input type="text" id="input" placeholder="Enter task item...">
-		  <span onclick="newItem()" class="addBtn">Add</span>
-		</div>
+    <title>ToDo List</title>
 
-		<ul id="myUL">
-		  <li>Finish homework</li>
-		  <li class="checked">Pay bills</li>
-		  <li>Take dog to vet</li>
-		  <li>Read a book</li>
-		  <li>Clean bedroom</li>
-		</ul>
-		
-		<div id="actBtns" class="btnFooter">
-			<button type="button" id="all">All</button>
-			<button type="button" id="done">Completed</button>
-			<button type="button" id="toDo">Active</button>
-      		</div>
-		</main>
-	</body>
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div id="myDIV" class="header">
+        <h2>My To Do List</h2>
+        <input type="text" id="input" placeholder="Enter task item..." />
+        <span onclick="newItem()" class="addBtn">Add</span>
+      </div>
+
+      <ul id="myUL">
+        <!-- <li>Finish homework</li>
+        <li class="checked">Pay bills</li>
+        <li>Take dog to vet</li>
+        <li>Read a book</li>
+        <li>Clean bedroom</li> -->
+      </ul>
+      <div id="actBtns" class="btnFooter">
+        <button type="button" onclick="showAll()" id="all">
+          All
+        </button>
+        <button type="button" onclick="showDone()" id="done">
+          Completed
+        </button>
+        <button type="button" onclick="showToDo()" id="toDo">
+          Active
+        </button>
+        <button type="button" onclick="clearAll()" id="clear">
+          DeleteAll
+        </button>
+      </div>
+    </main>
+	  
+  </body>
+  <footer>
+    <div class="footer">
+      <p id="info">&copy; 2020 To-Do List || Michelle Landen || WDD 330</p>
+    </div>
+  </footer>
 </html>
