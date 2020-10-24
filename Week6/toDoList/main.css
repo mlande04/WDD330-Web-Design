@@ -22,7 +22,7 @@ ul li {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; 
+  user-select: none;
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
@@ -44,7 +44,7 @@ ul li.checked {
 
 /* Add a "checked" mark when clicked on */
 ul li.checked::before {
-  content: '';
+  content: "";
   position: absolute;
   border-color: #fff;
   border-style: solid;
@@ -112,3 +112,45 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
+
+/* Style the additional action buttons 
+
+/* Place the buttons at the bottom of the page, and make them stick */
+.btnFooter {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: #d9d9d9;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Change the color of buttons on hover */
+.btnFooter:hover {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Add a color to the active/current button */
+.btnFooter:active {
+  background-color: #0048ba;
+  color: white;
+}
+
+/* Style footer display */
+.footer {
+  text-align: center;
+  margin: 5px 5px 30px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+	@media screen and (max-height: 450px) {
+		.sidenav {padding-top: 15px;}
+		.sidenav a {font-size: 18px;}
+	}
