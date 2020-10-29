@@ -261,21 +261,57 @@
             <li>'error' (an error is thrown)</li>
             <li>'manual' (the user has to click on a link to follow the redirect)</li>
           </ol>
+        </ol> 
+         <li><em>Hypertext Transfer Protocol (HTTP)</em></li>
+        <li>When a client (usually a browser) makes a request to a server, it contains information about which HTTP verb to use.</li>
+        <li>HTTP verbs, also known as HTTP methodsare the what HTTP uses to tell the server what type of request is being made, which then determines the server will deal with the request.</li>
+        <li>The five most commonly used verbs when dealing with resources on the web are:</li>
+        <ol>
+          <li>GET requests to retrieve resources</li>
+           <li>POST requests, usually used to create a resource but can actually perform any task</li>
+           <li>PUT requests toupsert, which means insert a resource or update it entirely</li>
+           <li>PATCH requests to make partial updates to a resource</li>
+           <li>DELETE requests to delete a resources</li>
         </ol>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>We can use the Headers, Request and Response objects to put together a typical example that sets up the URL, Request and Headers before calling the fetch() method:</li>
+         <ol>
+            <li>const url = 'https:example.com/data';</li>
+            <li>const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate' })</li>
+            <li>const request = (url,{<br>    headers: headers<br>})</li>
+            <li>fetch(request)<br>.then( function(response) {<br>    if(response.ok) {<br>        return response;<br>    }<br>    throw Error(response.statusText);<br>})<br>.then( response => // do something with response )<br>.catch( error => console.log('There was an error!') )</li>
+         </ol>
         
         <h3>Receiving data with Ajax</h3>
+        <li>See <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/13/k01nwvo0?fromShare=true">example</a> from text</li>
+        <li>Uses a std web page, js file, some variables assigned to URLs, maybe some buttons...</li>
+        <li>More <a href="https://www.dummies.com/web-design-development/html/how-to-retrieve-results-from-ajax-calls-with-javascript/">examples</a> from outside website</li>
+         
         <h3>Sending data with Ajax</h3>
+        <li>This can be a variety of formats, but is usually a JSON string.</li>
+        <li>See <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/13/k01nwvom?fromShare=true">example</a> from text</li>
+         <li>Uses a std web page, js file, an input box, some variables assigned to URLs, maybe some buttons...</li>
+         
         <h3>Form data</h3>
-        <h3>Our project ― obtain questions using Ajax</h3>
-        <ol>
-          <li></li>
-        </ol>
+         <li>The Fetch API includes the <em>FormData</em> interface, which makes it much easier to submit information in forms using Ajax.</li>
+        <li>A FormData instance is created using a constructor function: const data = new FormData();</li>
+        <li>the form data instance will serialize all the data automatically, ready to be sent using Ajax</li>
+        <li>The FormData interface helps to reduce the amount of code needed when submitting forms.</li>
+        <li>See <a href="https://javascript.info/formdata">example</a> from external javascript.info site</li>
+        <li>See <a href="https://www.sitepoint.com/easier-ajax-html5-formdata-interface/">example</a> from sitepoint blog</li>
+        <li>See <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">more info</a> from Mozilla Developer Network</li>
+        <li>See <a href="https://api.jquery.com/jquery.ajax/">JQuery Library</a> for AJAX methods already established</li>
+         
+         <h3>Summary:</h3>
+        <li>Ajax is a technique for sending and receiving data asynchronously in the background.</li>
+        <li>The data can be sent in many forms, but it is usually in JSON.</li>
+        <li>Ajax can be used for making partial page updates without having to do a full page reload.</li>
+        <li>Ajax can be used for communicating with external APIs.</li>
+        <li>Ajax requests can be made using the Fetch API.</li>
+        <li>The Response interface allows you to control the response received from a request or to create your own response objects.</li>
+        <li>The Request interface allows you to create a request object that contains information about the request being made, such as the URL and headers.</li>
+        <li>The Headers interface allows you to create HTTP headers that can be added to a request or response object.</li>
+        <li>Requests can retrieve data using a GET request, or send data using a POST request.</li>
+        <li>The FormData interface makes it easier to send data from forms.</li>
       </ul>
    </body>
 
