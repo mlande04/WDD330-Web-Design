@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>WDD 330 Portfolio</title>
+   </head>
+
+   <body>
+   <script src="main.js"></script>
+    <h1>Week 08</h1>
+      <ul>
+        <h2>Chapter 8: CSS3 Transforms and Transitions</h2>
+        <h2>Transforms</h2>
+        <li>transform property lets you lets you translate, rotate, scale, and/or skew any element on the page</li>
+        <li>Transforms require vendor prefixing for IE9, Android up to 4.4.3, iOS8, and Blackberry 10. MUST add modifier "-webkit-" for older browsers & models OR "-ms-" for IE9</li>
+        <li>To declare multiple transformations, provide a space-separated list of transform functions. We simply add our scale to the end of that space-separated list.</li>
+        <li>transforms are applied in the order provided</li>
+        
+        <h3>Translate function</h3>
+         <li>allow you to move elements left, right, up, or down without impacting the flow of the document; a translated element can only be moved relative to its current position</li>
+         <li>The translate(x,y) function moves an element x from the left, and y from the top:<br>   transform: translate(45px, -45px);</li>
+         <li>If you only want to move an element vertically or horizontally, you can use the translatex or translatey functions respectively.</li>
+        
+        <h3>Scaling function</h3>
+         <li>The scale(x,y) function scales an element by the defined factors horizontally then vertically. If only one value is provided, it will be used for both the x and y values, growing or shrinking your element or pseudo-element while maintaining the original aspect ratio.</li>
+         <li>You can also use the scaleX(x) or scaleY(y) functions.</li>
+         <li>By default, the element’s center will stay in the same place as its dimensions change.</li>
+         <li>has no impact on the document flow</li>
+         
+         <h3>Rotation function</h3>
+         <li>rotates an element around the point of origin by a specified angle value</li>
+         <li>by default the point of origin is the element’s center</li>
+         <li>angles are declared in degrees, with positive degrees moving clockwise and negative moving counterclockwise. In addition to degrees, values can be provided in grads, radians, or turns</li>
+         
+         <h3>Skew function</h3>
+         <li>The skew(x,y) function specifies a skew along the x and y axes. </li>
+         <li>If the second parameter is omitted, the skew will only occur on the x axis:<br>   transform: skew(15deg, 4deg);</li>
+         <li>there are axis-specific versions of the skew transform: skewX() and skewY()</li>
+         
+         <h3>Changing the Origin of the Transform</h3>
+         <li>This is done using the <em>transform-origin</em> property.</li>
+         
+         <h3>Order of Transform functions</h3>
+         <li>The order of transform functions does matter: if you rotate before translating, your translate direction will be on the rotated axis.</li>
+         
+         <h2>Transitions</h2>
+         <li>IE10 and all other browsers support CSS transitions, and transitions are UI enhancements, and fail accessibly, so we need not worry about archaic IE browsers.</li>
+         <li>Transitions allow the values of CSS properties to change over time, essentially providing simple animations.</li>
+         <li>Here are the steps to create a simple transition using only CSS:</li>
+         <ol>
+          <li>Declare the original state of the element in the default style declaration.</li>
+          <li>Declare the final state of your transitioned element; for example, a :hover state.</li>
+          <li>Include the transition functions in your default style declaration using the transition properties, including: transition-property , transition-duration , transition-timing-function , and transition-delay . We’ll look at each of these and how they work shortly.</li>
+        </ol>
+         <li>The <em>transition-property</em> property defines the CSS properties of the element that should be transitioned, with <em>all</em> for all properties being the default.</li>
+         <li>See a list of properties which can be animated: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">Animated CSS Properties</a></li>
+         <li>The <em>transition-duration</em> property sets how long the transition will take: the duration of time it takes to go from the default state to the transitioned state. You can specify this either in seconds ( s ) or milliseconds ( ms ).<br>   200ms is generally considered the optimum time for a transition:<br>   transition-duration: 0.2s;</li>
+         <li>The <em>transition-timing-function</em> lets you control the pace of the transition in even more granular detail. Do you want your animation to start off slow and become faster, start off fast and end slower, advance at an even keel, or some other variation?</li>
+         <ol>
+          <li><em>ease:</em> default; has a slow start, then it speeds up, and ends slowly</li>
+          <li><em>linear:</em> creates a transition that animates at a constant speed</li>
+          <li><em>ease-in:</em> creates a transition that is slow to start but gains speed, then stops abruptly</li>
+          <li><em>ease-out:</em> starts at full speed, then slows progressively as it reaches the conclusion of the transition</li>
+          <li><em>ease-in-out:</em> is similar to ease , but accelerates more sharply at the beginning</li>
+          <li>You can also describe your timing function more precisely by defining your own <em>cubic-bezier function</em>. It accepts four numeric parameters; for example, linear is the same as cubic-bezier(0, 0, 1, 1) .</li>
+          <li><em>steps(n, direction): </em>With the steps function, you define the number of steps and the direction of either start or end , where either the first step happens at the animation start, or the last step happens at the animation end respectively. For example, steps(5, start) would jump through the equidistant steps of 0%, 20%, 40%, 60%, and 80%, and steps(5, end) would jump throught the equidistant steps of 20%, 40%, 60%, 80%, and 100%.</li>
+        </ol>
+         <li>The <em>transition-delay</em> property makes it possible to introduce a delay before the transition begins.<br>   Normally a transition begins immediately, so the default is 0 . Include the number of milliseconds ( ms ) or seconds ( s ) to delay the transition. </li>
+         <li><em>The transition Shorthand Property: </em>transition: transform 0.2s ease-out 50ms; transition: "property" "duration" "timing-function" "delay";</li>
+         <li>The transition properties allow for <em><a href="https://www.sitepoint.com/premium/books/html5-css3-for-the-real-world-2nd-edition/read/8/jzj69adc?fromShare=true">multiple transitions in one call.</a></em></li>
+         
+         <h2>Transitions: Animations</h2>
+         <li>allow you to control each step of an animation via <em>keyframes:</em> a snapshot that defines a starting or end point of any smooth transition.</li>
+         <li>To animate an element in CSS, you first create a named animation, then attach it to an element in that element’s property declaration block.</li>
+         <li>To create an animation, use the @keyframes rule for IE10+ and FF16+. Include @-webkit-keyframes for all WebKit implementations followed by a name of your choosing, which will serve as the identifier for the animation. Then, you can specify your keyframes.</li>
+         <li>Each keyframe looks like its own nested CSS declaration block. Instead of a traditional selector, though, you use a percentage value, or a comma-separated list of percentage values. </li>
+         <li>There are two keyterms― from and to ―which evaluate to 0% and 100% respectively. These values specify how far along the animation each keyframe is located.</li>
+         <li>Inside each keyframe include the properties you want to animate, along with the animated values. </li>
+         <li>Keyframes can be specified in any order; it’s the percentage values rather than the order of the declarations that determine the sequence of keyframes in the animation.</li>
+         <li><a href="https://www.sitepoint.com/premium/books/html5-css3-for-the-real-world-2nd-edition/read/8/jzj69ae2?fromShare=true">Simple Animation examples</a></li>
+         
+         <h3>Animation Properties</h3>
+         <ol>
+          <li>animation-name-> animation-name: appearDisappear;<br>   the only required animation property to create an animation</li>
+          <li>animation-duration: property defines the length of time (in seconds or milliseconds) an animation takes to complete one iteration (all the way through, from 0% to 100%) -> animation-duration: 300ms;<br>   should be considered required to animate an element</li>
+          <li>animation-timing-function: determines how the animation will progress over its duration. The options are the same as for transition-timing-function -> animation-timing-function: linear;</li>
+          <li>animation-iteration-count: lets you define how many times the animation will play through.<br>   The value is generally an integer, but you can also use numbers with decimal points (in which case, the animation will end partway through an iteration), or the value infinite for endlessly repeating animations. Default is 1. -> animation-iteration-count: infinite;</li>
+          <li>animation-direction: When the animation iterates, it normally goes from the 0% to the 100% keyframe, jumping back to the 0% when it starts a new iteration (if the animation-iteration-count is greater than 1 ). This is the default or normal value for animation-direction . You can use this property to change this behavior.</li>
+          <ol>
+            <li>normal: default</li>
+            <li>reverse: will cause the animation to start at the 100% keyframe and work its way to the 0% keyframe for every iteration</li>
+            <li>alternate: the initial iteration and odd-numbered iterations after that will go in the normal 0% to 100% direction, but the second iteration and every even iteration after that will go in the reverse direction of 100% to 0%</li>
+            <li>alternate-reverse: causes the animation to alternate direction at every iteration, but it starts in reverse.</li>
+          </ol>
+          <li>animation-delay: is used to define how many milliseconds or seconds to wait before the browser begins the animation: -> animation-delay: 50ms;</li>
+          <li>animation-fill-mode: defines what happens before the first animation iteration begins and after the last animation iteration concludes</li>
+          <ol>
+            <li>none: default</li>
+            <li>forwards</li>
+            <li>backwards</li>
+            <li>both</li>
+          </ol>
+          <li>animation-play-state: defines whether the animation is running or paused</li>
+        </ol>
+         <li>Shorthand Animation: The animation property takes as its value a space-separated list of values for the longhand animation-name , animation-duration , animation-timing-function , animation-delay , animation-iteration-count , animation-direction , animation-fill-mode , and animation-play-state properties:</li>
+         
+        <h2>Chapter 12:</h2>
+        <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+         <li>XX</li>
+        <ol>
+          <li></li>
+        </ol>
+      </ul>
+   </body>
+
+</html>
