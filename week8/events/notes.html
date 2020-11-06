@@ -103,42 +103,95 @@
         </ol>
          <li>Shorthand Animation: The animation property takes as its value a space-separated list of values for the longhand animation-name , animation-duration , animation-timing-function , animation-delay , animation-iteration-count , animation-direction , animation-fill-mode , and animation-play-state properties:</li>
          
-        <h2>Chapter 12:</h2>
-        <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-         <li>XX</li>
-        <ol>
-          <li></li>
-        </ol>
+        <h2>Chapter 12: Canvas, SVG, and Drag and Drop</h2>
+         <h3>Canvas</h3>
+        <li>Use it to draw anything imaginable, all through JavaScript. This can improve the performance of our websites by avoiding the need to download images off the network.</li>
+         <li>We can draw shapes and lines, arcs and text, gradients and patterns.</li>
+         <li>canvas gives us the power to manipulate pixels in images and even video.</li>
+         
+         <h3>Creating a CANVAS Element</h3>
+         <li>add a canvas element to the page: <br<<canvas><br>    Sorry! Your browser doesn’t support Canvas.<br></canvas><br>The text in between the canvas tags will only be shown if the canvas element is not supported by the visitor’s browser.</li>
+         <li>Since drawing on the canvas is done using JavaScript, we’ll need a way to grab the element from the DOM. Giving our canvas an ID.</li>
+         <li>The <em>canvas</em> element takes both a <em>width</em> and <em>height</em> attribute, which must also be set.<br>The width and height attributes determine how large the canvas’s coordinate system is. If we don’t specify width and height , the canvas element will default to a width of 300 and a height of 150. If we set the width and height for a canvas only in CSS, the canvas element will be 300 by 150, and the CSS properties will simply determine how large the box is that displays the image.</li>
+         <li>Add a border to our canvas using some CSS to visually distinguish it on the page. Canvas has no default styling, so it’s difficult to see where it is on the page unless you give it some kind of border.</li>
+         
+         <h3>Drawing on the CANVAS</h3>
+         <li>Happens via the Canvas JavaScript API: Each example will have a new function, and all of these different functions live in a file called canvas.js.</li>
+         <li><em>Getting the Context: </em>the place where your drawing is rendered</li>
+         <li>We obtain our drawing context by calling the getContext method and passing it the string "2d" , since we’ll be drawing in two dimensions.<br>The object that’s returned by getContext is an instance of CanvasRenderingContext2D .</li>
+         <li><em>Filling Our Brush with Color: </em>On a real-life painting canvas, you must first saturate your brush with paint before you can begin. In the HTML5 canvas, you must do the same, and we do so with the <em>strokeStyle</em> or <em>fillStyle</em> properties. Both are set on a context object, and both take one of <em>three values:</em> a string representing a color, a CanvasGradient object, or a CanvasPattern object.</li>
+         <li><em>Drawing a Rectangle to the Canvas: </em>We can repeat the steps we just took: grabbing the canvas and the context, and setting a fill and stroke style. But now, we’ll draw a rectangle. We can do this by calling the <em>fillRect</em> and <em>strokeRect</em> methods. Both of these methods take the X and Y coordinates where you want to begin drawing the fill or the stroke, and the width and height of the rectangle.</li>
+         <li><em>The Canvas Coordinate System: </em>the top-left corner is (0,0). If the canvas is 200 pixels by 200 pixels, then the bottom-right corner is (200,200)</li>
+         <li><em>Variations on fillStyle: </em>Instead of a color as our fillStyle , we could have used a CanvasGradient or a CanvasPattern object. </li>
+         <li>Anonymous Functions: much like regular functions except, as you might guess, they are without names; When you see an anonymous function defined as an event listener, it means that the anonymous function is being bound to that event.</li>
+         <li><em>CanvasGradient object</em>: use as our fillStyle . To create a CanvasGradient , we call one of two methods: createLinearGradient() or createRadialGradient() ; then we add one or more color stops to the gradient.</li>
+         <li><a href="https://www.sitepoint.com/premium/books/html5-css3-for-the-real-world-2nd-edition/read/12/jzj69azs?fromShare=true">Add a colorStop</a></li>
+         <li><em>Drawing Other Shapes by Creating Paths: </em> To draw more interesting shapes, we must first lay out the path of the shape.</li>
+         <li><em>Paths</em> create a blueprint for your lines, arcs, and shapes, but paths are invisible until you give them a stroke!</li>
+         <li>Draw a circle: </li>
+         <ol>
+            <li>The first step is to begin the path of the circle. We do that with the method beginPath() , which resets the default path for you to begin drawing a new shape.</li>
+            <li>Now we need to create an arc. Anarcis a segment of a circle, but as there’s no method for creating a circle, we can draw a 360° arc. We create it using the arc method.<br>The signature for the arc method is: arc(x, y, radius, startAngle, endAngle, anticlockwise) .<br>startAngle and endAngle represent the start and end angles along the circle’s circumference that you want to draw. The units for the angles are in radians, and a circle is 2π radians.</li>
+            <li>Now we have a path—but unless we stroke it or fill it, we’ll be unable to see it. Thus, we must set a strokeStyle if we’d like to give it a border, and we must set a fillStyle if we’d like our circle to have a fill color. By default, the width of the stroke is one pixel, which is stored in the lineWidth property of the context object. Let’s make our border a bit bigger by setting the lineWidth to 3.</li>
+            <li>Lastly, we fill and stroke the path. Note that this time, the method names are different from those we used with our rectangle. To fill a path you simply call fill , and to stroke it you call stroke.</li>
+            <li>To learn more about drawing shapes, the Mozilla Developer Network has an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes">excellent tutorial</a>.</li>
+          </ol>
+         <li><em>Saving Canvas Drawings: </em>If we create an image programmatically using the Canvas API, but decide we’d like to have a local copy of our drawing, we can use the API’s toDataURL method to save our drawing. toDataURL creates a URL with the image in it, (either a png or jpg, whichever is specified). You can then right-click the image at this URL, and save it as a PNG or JPEG.</li>
+         <li><em>Drawing an Image to the Canvas: </em>We can also draw images onto the canvas element. In this example, we’ll be redrawing onto the canvas an image that already exists on the page.</li>
+         <li><em>Manipulating Images: </em>Once we’ve drawn an image on the canvas , we can use the getImageData method from the Canvas API to manipulate the pixels of that image.<br>getImageData will return an ImageData object, which contains three properties: width , height , and data .</li>
+         <li><em>data</em> contains information about the pixels in the ImageData object in the form of an array. Each pixel on the canvas will have four values in the data array, which correspond to that pixel’s R, G, B, and A values. A stands for Alpha, a measure of the element’s transparency, with 0 meaning the element is totally transparent, 1 meaning it’s totally opaque, and 0.5 meaning it’s 50% transparent.</li>
+         <li>Security Errors with getImageData: The true security issue that Chrome and Firefox are attempting to prohibit is a user on one domain manipulating images on another domain.</li>
+         <li><em>Converting an Image from Color to Black and White: </em>use getImageData to convert a full color image into black and white<br>we can use a for loop to iterate through each pixel in the image and change it to grayscale<br>First, we’ll call getImageData(0, 0, 200, 200) to retrieve the entire canvas. Then, we’ll grab the red, green, and blue values of each pixel, which appear in the array in that order.<br>Notice that our for loop is incrementing i by 4 instead of the usual 1 . This is because each pixel takes up four values in the imageData array—one number each for the R, G, B, and A values.<br>Determine the grayscale value for the current pixel. It turns out that there’s a mathematical formula for converting RGB to grayscale; you simply need to multiply each of the red, green, and blue values by some specific numbers.<br>Now that we have the proper grayscale value, we’re going to store it back into the red, green, and blue values in the data array.<br>Put the image data we’ve modified back into the canvas via a method called putImageData . This method does exactly what you’d expect: it takes an image's data and writes it onto the canvas .</li>
+         <li><em>Manipulating Video with Canvas: </em>We can take the code we’ve already written to convert a color image to black and white and enhance it to make our color video black and white.<br>Next, we’ll add a new event listener to react to the play event firing on the video element.<br>Call a custom function called draw when the video begins playing.</li>
+         
+         <h3>SVG: Scalable Vector Graphics</h3>
+         <li>a specific file format that allows you to describe vector graphics using XML<br>vector images preserve their quality even as you blow them up or shrink them down</li>
+         <li>We can use SVG to do many of the same tasks we can do with canvas, including drawing paths, shapes, text, gradients, and patterns. There are also very useful open-source tools relevant to SVG.</li>
+         <li>Unlike canvas, images created with SVG are available via the DOM. This enables technologies such as screen readers to see what’s present in an SVG object through its DOM node, as well as allowing you to inspect SVG using your browser’s developer tools. Since SVG is an XML file format, it’s also more accessible to search engines than canvas.</li>
+         
+         <h3>Drawing in SVG</h3>
+         <li>Drawing a circle in SVG is arguably easier than drawing a circle with canvas. Here’s how we do it:</li>
+         <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><br>    <circle cx="50" cy="50" r="25" fill="red"/><br></svg></li>
+         <ol>
+            <li>The viewBox attribute defines the starting location, width, and height of the SVG image.</li>
+            <li>The circle element defines a circle, with cx and cy the X and Y coordinates of the center of the circle. </li>
+            <li>The radius is represented by r , while fill defines the fill style.</li>
+         </ol>
+         <li>To view an SVG file, you simply open it via the File menu in any browser that supports SVG.</li>
+         <li>We can also draw rectangles in SVG, and add a stroke to them as we did with canvas.</li>
+         <li><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 400 400"><br>    <desc>Drawing a rectangle</desc><br></svg></li>
+         <li>Unfortunately, it’s not always this easy. If you want to create complex shapes, the code begins to look a little scary. See <a href="svg week8/events/svg_examples">examples</a> for details</li>
+         <li>To save ourselves some work (and sanity), instead of creating SVG images by hand, we can use an image editor to help. One open source tool that you can use to make SVG images is Inkscape, which is available for download at http://inkscape.org/.</li>
+         <li>A good resource to know about for public domain images ishttp://openclipart.org/, where you can find images that are free to use and free of copyright. </li>
+         <li><em>SVG Filters: </em>To make our progress spinner match our page a bit better, we can use a filter in Inkscape to make it black and white. Start by opening the file in Inkscape, then choose Filters > Color > Moonarize.</li>
+         <li><em>Using the Raphaël Library: </em>Raphaëlis an open-source JavaScript library that makes drawing and animating with SVG much easier.</li>
+         <li><em>Drawing an Image to Raphaël’s Container: </em>Much as with canvas, you can draw images into a container that you create using Raphaël.</li>
+         
+         <h3>Canvas versus SVG</h3>
+         <li>Both canvas and SVG allow you to draw custom shapes, paths, and fonts. </li>
+         <li>One downside of canvas is that it operates in what’s known asimmediate mode. This means that if you ever want to add more to the canvas, you’re unable to simply add to what’s already there. Every time you finish drawing a shape, the canvas no longer has access to that shape, because it won’t persist as an object that you can modify. So if you want to add to what you’ve already drawn on the canvas, you must redraw the new shape from scratch. Still, canvas does allow you to save the images you create to a PNG or JPEG file.</li>
+         <li>There’s also no access to what’s drawn on the canvas via the DOM. Because of this, canvas is much faster than SVG (here’s onespeed comparison), and canvas is generally the better choice if you’re looking to design a game requiring lots of animations.</li>
+         <li>What you draw to SVG is accessible via the DOM, because its mode isretained mode, meaning that the structure of the image is preserved in the XML document that describes it. </li>
+         <li>SVG also has, at this time, a more complete set of tools to help you work with it, such as the Raphaël library and Inkscape. However, since SVG is a file format—rather than a set of methods that allows you to dynamically draw on a surface—you can’t manipulate SVG images the way you can manipulate pixels on canvas.</li>
+         <li>If you need to paint pixels to the screen and have no concerns about the ability to retrieve and modify your shapes, canvas is probably the better choice.</li>
+         <li>If, on the other hand, you need to be able to access and change specific aspects of your graphics, SVG might be more appropriate.</li>
+         
+         <h3>Drag and Drop</h3>
+         <li>An API we can use to add some fun user interaction to our website -> the Drag and Drop API. <br>This API allows us to specify that certain elements are draggable, and then specify what should happen when these draggable elements are dragged over or dropped onto other elements on the page.</li>
+         <li>The API is unsupported by Android. It is also unsupported by design in iOS, as Apple directs you to use theDOM Touch API instead.</li>
+         <li>two major kinds of functionality you can implement with Drag and Drop: <br>dragging files from your computer into a web page—in combination with the File API<br>dragging elements into other elements on the same page.</li>
+         <li>steps to adding drag and drop to your page:</li>
+         <ol>
+            <li>Set the <em>draggable</em> attribute on any HTML elements you’d like to be draggable.</li>
+            <li>Add an event listener for the <em>dragstart</em> event on any draggable HTML elements.</li>
+            <li>Add an event listener for the <em>dragover</em> and <em>drop</em> events on any elements that you want to have accept dropped items.</li>
+         </ol>
+         <li><em>Feeding the WAI-ARIA Cat: </em><a href="/week8/events/drag_and_drop">drag and drop example</a></li>
+         <li>The first step is to add these new images to our index.html file. We’ll give each mouse image an ID as well.<br>We style the "mouseContainer"  div to have its text center aligned (assuming drag and drop is supported, which is what the .draganddrop class is checking for).<br>The next step is to make our images draggable. In order to do that, we add the draggable attribute to them, and set the value to true.<br><em>Note that draggable isnota Boolean attribute, so you have to explicitly set it to true .</em><br>We have to set an event listener for the dragstart event on each image.<br>Next, we’ll loop through all the img elements contained in the mice variable, and add an event listener for the dragstart event on each computer mouse.</li>
+         <li><em>The DataTransfer Object: </em>one type of object outlined in the Drag and Drop API. These objects allow us to set and get data about the elements that are being dragged.</li>
+         <li>Specifically, DataTransfer lets us define two pieces of information:<br>   the type of data we’re saving of the draggable element<br>   the value of the data itself</li>
+         <li><em>Accepting Dropped Elements: </em>by default, elements on the page aren’t set up to receive dragged items. In order to override the default behavior on a specific element, we must stop it from happening. We can do that by creating two more event listeners.</li>
+         <li>The two events we need to monitor for are dragover and drop . As you’d expect, dragover fires when you drag an item over an element, and drop fires when you drop an item on it.<br>We’ll need to prevent the default behavior for both these events, since the default prohibits you from dropping an element.</li>
       </ul>
    </body>
 
