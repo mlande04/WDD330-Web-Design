@@ -4,3 +4,8 @@
     height: 100px;
     background: #d16;
 }
+
+/*** use css for animations ***/
+/**
+@keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(3600deg); } }
+**/
