@@ -202,97 +202,92 @@
         <br>
         
         <h3>A Factorizing Example</h3>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
+        <li><a href="week9/events/factors.html">HTML pg</a> - for factoring numbers</li>
+        <li><a href="week9/events/main.js">For factors.html page</a> - Uses JS to factor numbers</li>
+        <li>if you enter a sizable number (around 18–20 digits), it takes longer to process the answer, and the browser will display a warning or the dreaded 'rainbow-whirl' that means something is taking a long time</li>
+        <li>it’s impossible to click on the 'Change Color' button while the factors are being calculated ― the whole program freezes until the operation is complete</li>
+        <li><em>use web workers to solve this problem:</em></li>
+        <li>Firstly, we create a new file called factors.js ; and save it in the same folder as main.js . Then we remove the factorsOf() function from the main.js file and add it into our new factors.js ; file. </li>
+        <br>
+        <h3>Shared Web Workers</h3>
+        <li>allow lots of different scripts on the same domain to access the same worker object</li>
+        <li>allow computationally complex operations to be performed in a separate thread, meaning that the flow of a program won’t suffer interruptions, and an application will not freeze or hang</li>
+        <br>
+        <h3>Service Workers</h3>
+        <li>allows a worker script to run in the background with the added benefit of being able to intercept network requests</li>
+        <li>There are a large number of different examples of using the Service Worker API inThe Service Worker Cookbook, which is maintained by Mozilla.</li>
+        <br>
+        <h3>Websockets</h3>
+        <li>a new protocol that allows two-way communication with a server – also known as push messaging. <br>This means that a connection is kept open and responses are ‘pushed’ to the client as soon as they are received.</li>
+        <li>See this <a href="week9/events/websockets/websockets.html"> websocket example</a> for a demonstration of using websockets in a chat app</li>
+          <br>
+          
+          <h3>Notifications</h3>
+        <li>allows you to show messages using the system's notifications</li>
+        <li> usually a popup in the corner of the screen, but it changes depending on the operating system</li>
+        <li><em>requestPermission()</em> method of a Notification global object => get permission granted by the user</li>
+        <li>This returns a promise with the permission property of the Notification object set to either 'granted' or 'denied'. If it’s set to granted, you can create a new notification using a constructor function.</li>
+          <li>You can read more about the <a href="https://developer.mozilla.org/en-US/docs/Web/API/notification">Notification API on MDN</a> and <a href="https://www.sitepoint.com/browser-notification-api/">this article on SitePoint</a>.</li>
+          <br>
+          
+          <h3>Multimedia</h3>
+          <li>An audio clip can be inserted into a page with the <em><audio> tag</em>, using the src attribute to point to the audio file.</li>
+          <li>A video clip can be inserted with the <em><video> tag</em>, using the src attribute to point to the movie file.</li>
+        <li>Any content inside the <audio> or <video> tags will only display if the browser does not support them; hence, it can be used to display a message to users of older browsers without support for these features.</li>
+           <li>The <em>controls attribute</em> can be added (without any value) and will display the browser’s native controls, such as play, pause, and volume control.</li>
+        <li>Audio and video elements have a number of properties and methods to control the playback of the clip.</li>
+        <li>video.play();<br>video.pause();<br></li>
+        <li>video.volume = 0.9; => a number that can be used to set the audio volume</li>
+          <li>video.muted = true; => boolean value that can be used to mute the audio</li>
+        <li>video.currentTime += 10; // jumps forward 10 seconds</li>
+        <li>video.playbackRate = 8; // fast-forward at 8 times as fast</li>
+        <li>video.loop = true; => a boolean value that can be set to true to make the clip repeat in a loop</li>
+           <li>video.duration; => can be used to see how long the clip lasts</li>
+        <li>Audio and video clips also have a number of events that will fire when they occur, including:</li>
+           <ol>
+              <li>The play event, which fires when the clip starts and when it resumes after a pause.</li>
+              <li>The pause event, which fires when the clip is paused.</li>
+              <li>The volumechange event, which fires when the volume is changed.</li>
+              <li>The loadedmetadata event, which we saw in the note above, and which fires when all the video's metadata has loaded.</li>
+           </ol>
+           <br>
+           
+           <h3>Other APIs</h3>
+        <li>The list of APIs is constantly growing, and includes APIs for accessing a device’s camera, uploading files, accessing the battery status, handling push notifications, building drag-and-drop functionality, creating 3D effects with WebGL, and many more! </li>
+        <li>A comprehensive list of HTML5 APIs can be found at the <a href="https://developer.mozilla.org/en-US/docs/Web/API">Mozilla Developer Network</a>.</li>
         <br>
         
         <h2>Drawing shapes with canvas</h2>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
+        <li>The canvas element was introduced to allow graphics to be drawn onto a web page in real time using JavaScript.</li>
+        <li>A canvas element is a rectangular element on the web page. It has a coordinate system that starts at (0,0) in the top-left corner. </li>
+        <li>To add a canvas element to a page, the <canvas> tag is used specifying a height and width.</li>
+        <li>Anything placed inside the tag will only display if the canvas element is unsupported.</li>
+        <li>A canvas element can be accessed in a JavaScript program using the document.getElementById() method.</li>
+        <li>The next step is to access the context of the canvas. This is an object that contains all the methods used to draw onto the canvas. </li>
+           <li>See a <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/14/k01nwvvl?fromShare=true">step-by-step guide</a> for drawing shapes with Canvas.</li>
+           <li>See <a href="week9/events/canvasExampleMisc.js">this link</a> for a Canvas example.</li>
         <br>
+           
         <h2>Shims and polyfills ― how to make the most of HTML5 APIs, even when they’re without browser support</h2>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <li>xx</li>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        <h3>xx</h3>
-        
-        <h2>xx</h2>
-        <h2>xx</h2>
-        <h2>xx</h2>
+        <li>These are libraries of code that allow you to use the APIs as usual. They then fill in the necessary code that's not provided natively by the user’s browser.</li>
+           <li><em>shim</em> - a piece of code that adds some missing functionality to a browser, although the implementation method may differ slightly from the standard API</li>
+           <li><em>polyfill</em> - a shim that achieves the same functionality, while also using the API commands that would be used if the feature was supported natively</li>
+        <li>This means that your code can use the APIs as normal and it should work as expected in older browsers.</li>
+        <li>The advantage here is that the same set of standard API commands can be used ― you don’t need to write additional code to deal with different levels of support.</li>
+        <br>
+       
+        <h2>Chapter Summary</h2>
         <ol>
-          <li></li>
+          <li>HTML5.1 is the latest incarnation of the Hypertext Markup Language. It covers a variety of technologies, including several APIs that are accessible using JavaScript.</li>
+          <li><em>data-</em> attributes help to embed custom data into a web page that can then be used to enhance the user experience with JavaScript.</li> 
+          <li>The Web Storage API allows key-value pairs to be stored on the user’s device in a similar way to cookies, but without the same storage restrictions.</li>
+          <li>The Geolocation API allows you to access the geographic coordinates of the user’s device, as long as the user gives permission.</li>
+          <li>The Web Worker API can be used to perform computationally intensive tasks in the background, which helps to avoid websites becoming unresponsive.</li>
+          <li>Websockets are a new protocol for communicating over the internet, and allow real-time, two-way communication.</li>
+          <li>The Notification API allows you to display notifications on the user's system.</li>
+          <li>The <em><audio></em> and <em><video></em> elements can be employed to embed audio tracks and video clips in a web page. They also have a Media API that can help control the playback using JavaScript.</li>
+          <li>The <em>canvas element</em> can be used to dynamically draw geometric shapes, text, and images on a web page in real-time using JavaScript.</li>
+          <li>A <em>shim</em> or <em>polyfill</em> is a piece of code that adds support of missing features to older browsers.</li>
         </ol>
       </ul>
    </body>
