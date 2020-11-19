@@ -41,6 +41,7 @@
           <li>The element matches the :valid CSS pseudo-class, which lets you apply a specific style to valid elements.</li>
           <li>If the user tries to send the data, the browser will submit the form, provided there is nothing else stopping it from doing so (e.g., JavaScript).</li>
         </ol>
+         <li>Simple<a href = "/week10/events/fruitStart.html"> required attribute </a>example</li>
         <li>When an element is invalid, the following things are true:</li>
         <ol>
           <li>The element matches the :invalid CSS pseudo-class, and sometimes other UI pseudo-classes (e.g., :out-of-range) depending on the error, which lets you apply a specific style to invalid elements.</li>
@@ -48,23 +49,71 @@
         </ol>
         <br>
         <li>Note: There are several errors that will prevent the form from being submitted, including a badInput, patternMismatch, rangeOverflow or rangeUnderflow, stepMismatch, tooLong or tooShort, typeMismatch, valueMissing, or a customError.<br></li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        
+         <h3>Validating Against a Regular Expression</h3>
+         <li>Simple<a href = "/week10/events/fruitStart.html"> pattern attribute </a>example</li>
+         <li>The <em>pattern</em> attribute -> expects a Regular Expression as its value</li>
+        <li>A regular expression (regex) is a pattern that can be used to match character combinations in text strings, so regexs are ideal for form validation and serve a variety of other uses in JavaScript.</li>
+        <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference">Regular Expressions</a> - microsoft guide<br></li>
+         <h3>Constraining the Length of the Entries</h3>
+        <li>Use the minlength and maxlength attributes.<br>A field is invalid if it has a value and that value has fewer characters than the minlength value or more than the maxlength value.</li>
+         <h3>Constraining the Values of Entries</h3>
+        <li>For number fields (i.e. <input type="number">), the min and max attributes can be used to provide a range of valid values. If the field contains a value outside this range, it will be invalid.</li>
+         <li>Simple<a href = "/week10/events/fruitConstraint.html"> constraint attributes </a>example</li>
+         <br>
+         <h3>Validating Forms Using Javascript</h3>
+        <li>You must use JavaScript if you want to take control over the look and feel of native error messages or to deal with legacy browsers that do not support HTML's built-in form validation.<br></li>
+         <h3>The Constraint Validation API</h3>
+         <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation">This API</a> consists of a set of methods and properties available on the following form element DOM interfaces:</li>
+         <ol>
+            <li>HTMLButtonElement (represents a <button> element)</li>
+            <li>HTMLFieldSetElement (represents a <fieldset> element)</li>
+            <li>HTMLInputElement (represents an <input> element)</li>
+            <li>HTMLOutputElement (represents an <output> element)</li>
+            <li>HTMLSelectElement (represents a <select> element)</li>
+            <li>HTMLTextAreaElement (represents a <textarea> element)</li>
+         </ol>
+        <li>It makes the following properties available on the above elements:</li>
+         <ol>
+            <li>validationMessage: Returns a localized message describing the validation constraints that the control doesn't satisfy (if any).</li>
+            <li>validity: Returns a ValidityState object that contains several properties describing the validity state of the element.<br>Has several properties:</li>
+            <ol>
+               <li>patternMismatch: Returns true if the value does not match the specified pattern, and false if it does match.</li>
+               <li>tooLong: Returns true if the value is longer than the maximum length specified by the maxlength attribute, or false if it is shorter than or equal to the maximum.</li>
+               <li>tooShort: Returns true if the value is shorter than the minimum length specified by the minlength attribute, or false if it is greater than or equal to the minimum.</li>
+               <li>rangeOverflow: Returns true if the value is greater than the maximum specified by the max attribute, or false if it is less than or equal to the maximum.</li>
+               <li>rangeUnderflow: Returns true if the value is less than the minimum specified by the min attribute, or false if it is greater than or equal to the minimum.</li>
+               <li>typeMismatch: Returns true if the value is not in the required syntax (when type is email or url), or false if the syntax is correct.</li>
+               <li>valid: Returns true if the element meets all its validation constraints, and is therefore considered to be valid, or false if it fails any constraint.</li>
+               <li>valueMissing: Returns true if the element has a required attribute, but no value, or false otherwise.</li>
+            </ol>
+            <li>willValidate: Returns true if the element will be validated when the form is submitted; false otherwise.</li>
+         </ol>
+         <br>
+        <li>Implementing a customized error message:</li>
+        <li>Customizing error messages is one of the most common use cases of the constraint validation API.</li>
+         <li>See a <a href="/week10/events/customErrorMsg.html">custom error message</a> example.</li>
+         <li>See a <a href="week10/events/fullCustomValidation.html">Full Example</a> - A detailed validation using Javascript</li>
+         <br>
+        <li>Validating forms without a built-in API:</li>
+        <li>In some cases, such as legacy browser support or custom controls, you won't be able to or won't want to use the Constraint Validation API.You're still able to use JavaScript to validate your form, but you'll just have to write your own.</li>
+         <ol>
+            <li>What kind of validation should I perform?</li>
+            <li>What should I do if the form doesn't validate?</li>
+            <li>How can I help the user to correct invalid data?</li>
+            <li>See <a href="week10/events/simpleJSValidation.html">this example</a> without using the constraint API.</li>
+            <br>
+            <h3>Summary:</h3>
+           <li>Client-side form validation sometimes requires JavaScript if you want to customize styling and error messages, but it always requires you to think carefully about the user.</li>
+           <li>Always remember to help your users correct the data they provide.</li>
+           <li>Important:</li>
+            <ol>
+               <li>Display explicit error messages.</li>
+               <li>Be permissive about the input format.</li>
+               <li>Point out exactly where the error occurs, especially on large forms.</li>
+            </ol>
+           <br>
+            <br>
+            
         <h2>MDN: Using Fetch</h2>
         <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">See article</a> for complete details<li>
         <li><a href="week10/events/XX">XX</a> - XX</li>
