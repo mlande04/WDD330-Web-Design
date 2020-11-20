@@ -116,35 +116,86 @@
             
         <h2>MDN: Using Fetch</h2>
         <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">See article</a> for complete details<li>
-        <li><a href="week10/events/XX">XX</a> - XX</li>
         <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
-        <li>XX</li>
+        <li>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.</li>
+        <li>It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.<br></li>
+        <li>The fetch specification differs from jQuery.ajax() in three main ways:</li>
         <ol>
-          <li></li>
+           <li>The Promise returned from fetch() <em>won’t reject on HTTP error status</em> even if the response is an HTTP 404 or 500. Instead, it will resolve normally (with ok status set to false), and it will only reject on network failure or if anything prevented the request from completing.</li>
+           <li>fetch() <em>can receive cross-site cookies</em>; you can establish a cross site session using fetch.</li>
+           <li>fetch() <em>won’t send cookies</em>, unless you set the credentials init option.</li>
         </ol>
+            <h3>Supplying request options</h3>
+        <li>The fetch() method can optionally accept a second parameter, an init object that allows you to control a number of different settings.</li>
+            <li>See the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch"> fetch() page</a> for complete info.</li>
+        <li>Note that mode: "no-cors" only allows a limited set of headers in the request:</li>
+         <ol>
+          <li>Accept</li>
+            <li>Accept-Language</li>
+            <li>Content-Language</li>
+            <li>Content-Type with a value of application/x-www-form-urlencoded, multipart/form-data, or text/plain</li>
+        </ol>
+        <h3>Sending a request with credentials included</h3>
+        <li>To cause browsers to send a request with credentials included, even for a cross-origin call, add credentials: 'include' to the init object you pass to the fetch() method.</li>
+            <li>See <a href="week10/events/fetch.js">this page for fetch() examples:</a></li>
+            <ol>
+          <li>Supplying request options</li>
+               <li>Sending a request with credentials included</li>
+               <li>Uploading JSON data</li>
+               <li>Uploading a file</li>
+               <li>Uploading multiple files</li>
+               <li>Processing a text file line by line</li>
+               <li>Checking that the fetch was successful</li>
+               <li>Supplying your own request object</li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+        </ol>
+            <h3>Headers</h3>
+        <li>The Headers interface allows you to create your own headers object via the Headers() constructor.</li>
+        <li>All of the Headers methods throw a TypeError if a header name is used that is not a valid HTTP Header name. <br>The mutation operations will throw a TypeError if there is an immutable guard (see below). Otherwise, they fail silently.</li>
+        <li>A good use case for headers is checking whether the content type is correct before you process it further.</li>
+            <li><em>Guard Property</em></li>
+        <li>Since headers can be sent in requests and received in responses, and have various limitations about what information can and should be mutable, headers objects have a guard property. <br>This is not exposed to the Web, but it affects which mutation operations are allowed on the headers object.</li>
+        <li>Possible guard values are:</li>
+            <ol>
+          <li>none: default</li>
+               <li>request: guard for a headers object obtained from a request (Request.headers)</li>
+               <li>request-no-cors: guard for a headers object obtained from a request created with Request.mode no-cors</li>
+               <li>response: guard for a Headers obtained from a response (Response.headers)</li>
+               <li>immutable: Mostly used for ServiceWorkers; renders a headers object read-only</li>
+        </ol>
+            <h3>Response objects</h3>
+        <li>The most common response properties you'll use are:</li>
+         <ol>
+          <li>Response.status — An integer (default value 200) containing the response status code.</li>
+            <li>Response.statusText — A string (default value "OK"), which corresponds to the HTTP status code message.</li>
+            <li>Response.ok — seen in use above, this is a shorthand for checking that status is in the range 200-299 inclusive. This returns a Boolean.</li>
+        </ol>
+        <li>The Response() constructor takes two optional arguments — a body for the response, and an init object (similar to the one that Request() accepts.)</li>
+            <h3>Body</h3>
+        <li>Both requests and responses may contain body data. A body is an instance of any of the following types:</li>
+        <ol>
+          <li>ArrayBuffer</li>
+           <li>ArrayBufferView (Uint8Array and friends)</li>
+           <li>Blob/File</li>
+           <li>string</li>
+           <li>URLSearchParams</li>
+           <li>FormData</li>
+        </ol>
+        <li>The Body mixin defines the following methods to extract a body (implemented by both Request and Response). These all return a promise that is eventually resolved with the actual content.</li>
+        <ol>
+          <li>ArrayBuffer</li>
+           <li>blob()</li>
+           <li>json()</li>
+           <li>text()</li>
+           <li>formData()</li>
+        </ol>
+         <li>Request bodies can be set by passing body parameters.</li>
+        <li>Both request and response (and by extension the fetch() function), will try to intelligently determine the content type. A request will also automatically set a Content-Type header if none is set in the dictionary.</li>
+            <li><em>Feature detection:</em> Fetch API support can be detected by checking for the existence of Headers, Request, Response or fetch() on the Window or Worker scope.</li>
+            <li><em>Polyfill: </em>To use Fetch in unsupported browsers, there is a Fetch Polyfill available that recreates the functionality for non-supporting browsers.</li>
       </ul>
    </body>
 
